@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+//import "../styles/Header.css";
+import ThemeContext from "../context/ThemeContext";
 
 export const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+
+  const color = useContext(ThemeContext);
 
   const handleClick = () => {
     setDarkMode(!darkMode);
@@ -9,7 +13,7 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <h1>React Hooks</h1>
+      <h1 style={{ color }}>React Hooks</h1>
       <div>
         <button type="button" onClick={handleClick}>
           {darkMode ? "Dark Mode" : "Light Mode"}
